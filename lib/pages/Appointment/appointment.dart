@@ -1,15 +1,15 @@
-import 'package:flutter/material.dart';
-import 'package:vcure_doctors/components/background.dart';
+// import 'package:flutter/material.dart';
+// import 'package:vcure_doctors/components/background.dart';
 
-import 'package:vcure_doctors/pages/kyc.dart';
+// import 'package:vcure_doctors/pages/kyc.dart';
 
-void main() {
-  runApp(MyApp());
-}
+// void main() {
+//   runApp(MyApp());
+// }
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      body ,
-    );
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       body ,
+//     );

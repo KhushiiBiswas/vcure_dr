@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vcure_doctors/components/appointment_toogle.dart';
 import 'package:vcure_doctors/components/button2.0.dart';
 import 'package:vcure_doctors/components/hellotext.dart';
 import 'package:vcure_doctors/components/location_drpdown.dart';
@@ -66,6 +67,7 @@ class _HomePageBodyState extends State<HomePageBody> {
                           //             )));
                         },
                       ),
+                      CustomToggle()
                     ],
                   ),
                 ),
