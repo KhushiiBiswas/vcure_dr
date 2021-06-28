@@ -11,8 +11,6 @@ class _CustomToggleState extends State<CustomToggle> {
   bool togglevalue = false;
   @override
   Widget build(BuildContext context) {
-    bool togglevalue = false;
-
     return Material(
       child: Center(
         child: AnimatedContainer(
@@ -37,9 +35,9 @@ class _CustomToggleState extends State<CustomToggle> {
                     child: AnimatedSwitcher(
                       duration: Duration(milliseconds: 1000),
                       transitionBuilder:
-                          (Widget child, Animation<double> animation0) {
+                          (Widget child, Animation<double> animation) {
                         return RotationTransition(
-                            child: child, turns: animation0);
+                            child: child, turns: animation);
                       },
                       child: togglevalue
                           ? Icon(
