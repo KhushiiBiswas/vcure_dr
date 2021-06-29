@@ -8,73 +8,76 @@ class DoctorsFront extends StatefulWidget {
   const DoctorsFront({Key key}) : super(key: key);
 
   @override
-  _DoctorsFrontPageState createState() => _DoctorsFrontPageState();
+  _DoctorsFrontState createState() => _DoctorsFrontState();
 }
 
-class _DoctorsFrontPageState extends State<DoctorsFrontPage> {
+class _DoctorsFrontState extends State<DoctorsFront> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return SingleChildScrollView(
-      child: Stack(
-        children: [
-          Location(),
-          Padding(
-            padding: const EdgeInsets.only(top: 50),
-            child: HelloText(),
-          ),
-          Center(
-            child: Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(top: size.height / 3.3),
-                  child: Column(
-                    children: [
-                      ButtonIn(
-                        text: 'Morning',
-                        press: () {
-                          // Navigator.of(context, rootNavigator: true)
-                          //     .push(MaterialPageRoute(
-                          //         builder: (context) => Categories(
-                          //               appointmentType: "Instant Consultation",
-                          //             )));
-                        },
-                      ),
-                      SizedBox(
-                        height: 50,
-                      ),
-                      ButtonIn(
-                        text: 'Afternoon',
-                        press: () {
-                          // Navigator.of(context, rootNavigator: true)
-                          //     .push(MaterialPageRoute(
-                          //         builder: (context) => Categories(
-                          //               appointmentType: "Appointment Booking",
-                          //             )));
-                        },
-                      ),
-                      SizedBox(
-                        height: 50,
-                      ),
-                      ButtonIn(
-                        text: 'Evening',
-                        press: () {
-                          // Navigator.of(context, rootNavigator: true)
-                          //     .push(MaterialPageRoute(
-                          //         builder: (context) => Categories(
-                          //               appointmentType:
-                          //                   "In-Clinic Appointment",
-                          //             )));
-                        },
-                      ),
-                      CustomToggle()
-                    ],
-                  ),
-                ),
-              ],
+    return Material(
+          child: SingleChildScrollView(
+        child: Stack(
+          children: [
+            Location(),
+            Padding(
+              padding: const EdgeInsets.only(top: 50),
+              child: HelloText(),
             ),
-          ),
-        ],
+            Center(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(top: size.height / 3.3),
+                    child: Column(
+                      children: [
+                        ButtonIn(
+                          text: '  Morning  ',
+                        
+                          press: () {
+                            // Navigator.of(context, rootNavigator: true)
+                            //     .push(MaterialPageRoute(
+                            //         builder: (context) => Categories(
+                            //               appointmentType: "Instant Consultation",
+                            //             )));
+                          },
+                        ),
+                        SizedBox(
+                          height: 50,
+                        ),
+                        ButtonIn(
+                          text: '  Afternoon  ',
+                          press: () {
+                            // Navigator.of(context, rootNavigator: true)
+                            //     .push(MaterialPageRoute(
+                            //         builder: (context) => Categories(
+                            //               appointmentType: "Appointment Booking",
+                            //             )));
+                          },
+                        ),
+                        SizedBox(
+                          height: 50,
+                        ),
+                        ButtonIn(
+                          text: '  Evening  ',
+                          press: () {
+                            // Navigator.of(context, rootNavigator: true)
+                            //     .push(MaterialPageRoute(
+                            //         builder: (context) => Categories(
+                            //               appointmentType:
+                            //                   "In-Clinic Appointment",
+                            //             )));
+                          },
+                        ),
+                       // CustomToggle()
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
