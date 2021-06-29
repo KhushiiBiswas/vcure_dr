@@ -15,8 +15,8 @@ class _CustomToggleState extends State<CustomToggle> {
       child: Center(
         child: AnimatedContainer(
           duration: Duration(milliseconds: 1000),
-          height: 40.0,
-          width: 100.0,
+          height: 20.0,
+          width: 50.0,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20.0),
               color: togglevalue
@@ -43,13 +43,13 @@ class _CustomToggleState extends State<CustomToggle> {
                           ? Icon(
                               Icons.check_circle,
                               color: Colors.green,
-                              size: 35.0,
+                              size: 17.0,
                               key: UniqueKey(),
                             )
                           : Icon(
                               Icons.remove_circle_outline,
                               color: Colors.red,
-                              size: 35.0,
+                              size: 17.0,
                               key: UniqueKey(),
                             ),
                     ),
