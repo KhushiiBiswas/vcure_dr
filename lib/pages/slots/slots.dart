@@ -1,7 +1,7 @@
  import 'package:flutter/material.dart';
-import 'package:vcure_doctors/components/appointment_toogle.dart';
+ import 'package:vcure_doctors/components/appointment_toogle.dart';
  import 'package:vcure_doctors/components/button1.0.dart';
-import 'package:vcure_doctors/components/location_drpdown.dart';
+ import 'package:vcure_doctors/components/location_drpdown.dart';
  import 'package:vcure_doctors/pages/demo.dart';
 
  class Slots extends StatefulWidget {
@@ -24,7 +24,7 @@ import 'package:vcure_doctors/components/location_drpdown.dart';
                 mainAxisAlignment: MainAxisAlignment.center,
                  
                 children: [
-                  const TextField(
+                  /* const TextField(
                    obscureText: true,
                     decoration: InputDecoration(
                      border: OutlineInputBorder(),
@@ -32,57 +32,75 @@ import 'package:vcure_doctors/components/location_drpdown.dart';
                       labelStyle: TextStyle(color: Colors.grey,fontSize: 30,fontWeight: FontWeight.bold),
                       labelText: '               Scheduling   ',
                     ),
-                  ),
-               //Text("  Scheduling ",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Colors.grey),overflow: TextOverflow.ellipsis,Dec),
+                  ), */
+               Text("  Scheduling ",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Colors.grey),),
                Padding(
                  padding: const EdgeInsets.only(top: 50),
                  child: Column(
                    
                    children: [
                      const TextField(
+                   obscureText: true,
+                    decoration: InputDecoration(
+                     border: OutlineInputBorder(),
                       
-                       obscureText: true,
-                       decoration: InputDecoration(
-                       border: OutlineInputBorder(),
-                      
-                      labelStyle: TextStyle(color: Colors.grey,fontSize: 24,fontWeight: FontWeight.bold,),
-                      labelText: '                      Morning   ',
+                      labelStyle: TextStyle(color: Colors.grey,fontSize: 30,fontWeight: FontWeight.bold),
+                      labelText: '               Morning   ',
                     ),
                   ),
-                     Row(
-                       children:[
-                         Padding(
-                           padding: const EdgeInsets.only(top: 50), 
-                         ),
-                         
-                          Row(children: [
-                           Text("  8 AM - 9 AM      ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
-                           CustomToggle()
-                         ],),
-                         Row(children: [
-                           Text("       9 AM - 10 AM  ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
-                           CustomToggle()
-                         ],),
-                         
-                         ]
+                     /* Text("  Morning  ",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Colors.grey),textAlign: TextAlign.center,),
+                     Text("----------------------------------------------------------------------------------------",textAlign: TextAlign.center,), */
+                     
+                     Container(
+                       decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                         begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                         colors: [Color(0xff03c8a8), Color(0xff89d8d3)]),
+                        ),
+                       child: Row(
+                         children:[
+                           Padding(
+                             padding: const EdgeInsets.only(top: 50), 
+                           ),
+                           
+                            Row(children: [
+                             Text("08 AM - 09 AM     ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
+                             CustomToggle()
+                           ],),
+                           Row(children: [
+                             Text("09 AM - 10 AM     ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
+                             CustomToggle()
+                           ],),
+                           
+                           ]
+                       ),
                      ),
-                      Row(
-                       children:[
-                         
-                         Padding(
-                           padding: const EdgeInsets.only(top: 20), 
-                         ),
-                         Row(children: [
-                           Text("  10 AM - 11 AM ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
-                           CustomToggle()
-                         ],),
-                         Row(children: [
-                           Text("     11 AM - 12 AM  ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
-                           CustomToggle()
-                         ],),
-                         
-                         ]
-                     )
+                      Container(
+                        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [Color(0xff03c8a8), Color(0xff89d8d3)]),
+          ),
+                        child: Row(
+                         children:[
+                           
+                           Padding(
+                             padding: const EdgeInsets.only(top: 20), 
+                           ),
+                           Row(children: [
+                             Text("10 AM - 11 AM ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
+                             CustomToggle()
+                           ],),
+                           Row(children: [
+                             Text("     11 AM - 12 AM  ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
+                             CustomToggle()
+                           ],),
+                           
+                           ]
+                     ),
+                      )
                      
                    ],
 
@@ -109,13 +127,13 @@ import 'package:vcure_doctors/components/location_drpdown.dart';
                            padding: const EdgeInsets.only(top: 50), 
                          ),
                          Row(children: [
-                           Text("  12 PM - 1 PM  ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
+                           Text("  12 PM - 01 PM  ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
                            CustomToggle()
                          ],),
                          
                          
                          Row(children: [
-                           Text("     1 PM - 2 PM  ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
+                           Text("     01 PM - 02 PM  ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
                            CustomToggle()
                          ],),
                          
@@ -128,13 +146,13 @@ import 'package:vcure_doctors/components/location_drpdown.dart';
                            padding: const EdgeInsets.only(top: 20), 
                          ),
                          Row(children: [
-                           Text("  2 PM - 3 PM    ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
+                           Text(" 02 PM - 03 PM    ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
                            CustomToggle()
                          ],),
                          
                          
                          Row(children: [
-                           Text("     3 PM - 4 PM  ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
+                           Text("    03 PM - 04 PM  ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
                            CustomToggle()
                          ],),
                          
@@ -166,13 +184,13 @@ import 'package:vcure_doctors/components/location_drpdown.dart';
                            padding: const EdgeInsets.only(top: 50), 
                          ),
                          Row(children: [
-                           Text("  4 PM - 5 PM  ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
+                           Text("  04 PM - 05 PM  ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
                            CustomToggle()
                          ],),
                          
                          
                          Row(children: [
-                           Text("     5 PM - 6 PM  ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
+                           Text("     05 PM - 06 PM  ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
                            CustomToggle()
                          ],),
                          
@@ -185,12 +203,12 @@ import 'package:vcure_doctors/components/location_drpdown.dart';
                            padding: const EdgeInsets.only(top: 20), 
                          ),
                          Row(children: [
-                           Text("  6 PM - 7 PM  ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
+                           Text("  06 PM - 07 PM  ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
                            CustomToggle()
                          ],),
                          
                          Row(children: [
-                           Text("     7 PM - 8 PM  ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
+                           Text("     07 PM - 08 PM  ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
                            CustomToggle()
                          ],),
                          
