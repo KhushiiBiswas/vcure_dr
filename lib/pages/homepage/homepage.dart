@@ -18,7 +18,7 @@ class _HomePageBodyState extends State<HomePageBody> {
     return SingleChildScrollView(
       child: Stack(
         children: [
-          Location(),
+          Location(), 
           Padding(
             padding: const EdgeInsets.only(top: 50),
             child: HelloText(),
