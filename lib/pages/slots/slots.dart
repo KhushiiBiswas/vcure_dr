@@ -78,11 +78,11 @@
                      ),
                       Container(
                         decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [Color(0xff03c8a8), Color(0xff89d8d3)]),
-          ),
+                        gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [Color(0xff03c8a8), Color(0xff89d8d3)]),
+                      ),
                         child: Row(
                          children:[
                            
@@ -90,11 +90,11 @@
                              padding: const EdgeInsets.only(top: 20), 
                            ),
                            Row(children: [
-                             Text("10 AM - 11 AM ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
+                             Text("10 AM - 11 AM     ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
                              CustomToggle()
                            ],),
                            Row(children: [
-                             Text("     11 AM - 12 AM  ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
+                             Text("11 AM - 12 AM     ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
                              CustomToggle()
                            ],),
                            
@@ -120,44 +120,63 @@
                       labelText: '                     Afternoon   ',
                     ),
                   ),
-                     Row(
-                       children:[
-                         
-                         Padding(
-                           padding: const EdgeInsets.only(top: 50), 
-                         ),
-                         Row(children: [
-                           Text("  12 PM - 01 PM  ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
-                           CustomToggle()
-                         ],),
-                         
-                         
-                         Row(children: [
-                           Text("     01 PM - 02 PM  ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
-                           CustomToggle()
-                         ],),
-                         
-                         ]
+                     Container(
+                       
+                        decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [Color(0xff03c8a8), Color(0xff89d8d3)]),
+                      ),
+                       child: Row(
+                         children:[
+                           
+                           Padding(
+                             padding: const EdgeInsets.only(top: 50), 
+                           ),
+                           Row(children: [
+                             Text("12 PM - 01 PM     ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
+                             CustomToggle()
+                           ],),
+                           
+                           
+                           Row(children: [
+                             Text("01 PM - 02 PM     ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
+                             CustomToggle()
+                           ],),
+                           
+                           ]
+                       ),
                      ),
-                      Row(
-                       children:[
-                         
-                         Padding(
-                           padding: const EdgeInsets.only(top: 20), 
-                         ),
-                         Row(children: [
-                           Text(" 02 PM - 03 PM    ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
-                           CustomToggle()
-                         ],),
-                         
-                         
-                         Row(children: [
-                           Text("    03 PM - 04 PM  ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
-                           CustomToggle()
-                         ],),
-                         
-                         ]
-                     )
+                      Container(
+               
+                        decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [Color(0xff03c8a8), Color(0xff89d8d3)]),
+                      ),
+                        
+                        child: Row(
+                         children:[
+                           
+                           Padding(
+                             padding: const EdgeInsets.only(top: 20), 
+                           ),
+                           Row(children: [
+                             Text("02 PM - 03 PM     ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
+                             CustomToggle()
+                           ],),
+                           
+                           
+                           Row(children: [
+                             Text("03 PM - 04 PM     ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
+                             CustomToggle()
+                           ],),
+                           
+                           ]
+                     ),
+                      )
                      
                    ],
 
@@ -177,43 +196,61 @@
                       labelText: '                      Evening  ',
                     ),
                   ),
-                     Row(
-                       children:[
-                         
-                         Padding(
-                           padding: const EdgeInsets.only(top: 50), 
-                         ),
-                         Row(children: [
-                           Text("  04 PM - 05 PM  ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
-                           CustomToggle()
-                         ],),
-                         
-                         
-                         Row(children: [
-                           Text("     05 PM - 06 PM  ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
-                           CustomToggle()
-                         ],),
-                         
-                         ]
+                     Container(
+                       
+                        decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [Color(0xff03c8a8), Color(0xff89d8d3)]),
+                      ),
+                       child: Row(
+                         children:[
+                           
+                           Padding(
+                             padding: const EdgeInsets.only(top: 50), 
+                           ),
+                           Row(children: [
+                             Text("04 PM - 05 PM     ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
+                             CustomToggle()
+                           ],),
+                           
+                           
+                           Row(children: [
+                             Text("05 PM - 06 PM     ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
+                             CustomToggle()
+                           ],),
+                           
+                           ]
+                       ),
                      ),
-                      Row(
-                       children:[
-                         
-                         Padding(
-                           padding: const EdgeInsets.only(top: 20), 
-                         ),
-                         Row(children: [
-                           Text("  06 PM - 07 PM  ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
-                           CustomToggle()
-                         ],),
-                         
-                         Row(children: [
-                           Text("     07 PM - 08 PM  ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
-                           CustomToggle()
-                         ],),
-                         
-                         ]
-                     )
+                      Container(
+                       
+                        decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [Color(0xff03c8a8), Color(0xff89d8d3)]),
+                      ),
+                        child: Row(
+                         children:[
+                           
+                           Padding(
+                             padding: const EdgeInsets.only(top: 20), 
+                           ),
+                           Row(children: [
+                             Text("06 PM - 07 PM     ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
+                             CustomToggle()
+                           ],),
+                           
+                           Row(children: [
+                             Text("07 PM - 08 PM     ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
+                             CustomToggle()
+                           ],),
+                           
+                           ]
+                     ),
+                      )
                      
                    ],
 
