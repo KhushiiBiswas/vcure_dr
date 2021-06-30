@@ -30,7 +30,7 @@ import 'package:vcure_doctors/components/location_drpdown.dart';
                      border: OutlineInputBorder(),
                       
                       labelStyle: TextStyle(color: Colors.grey,fontSize: 30,fontWeight: FontWeight.bold),
-                      labelText: '                Scheduling   ',
+                      labelText: '               Scheduling   ',
                     ),
                   ),
                //Text("  Scheduling ",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Colors.grey),overflow: TextOverflow.ellipsis,Dec),
@@ -46,7 +46,7 @@ import 'package:vcure_doctors/components/location_drpdown.dart';
                        border: OutlineInputBorder(),
                       
                       labelStyle: TextStyle(color: Colors.grey,fontSize: 24,fontWeight: FontWeight.bold,),
-                      labelText: '                        Morning   ',
+                      labelText: '                      Morning   ',
                     ),
                   ),
                      Row(
