@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class ButtonIn extends StatelessWidget {
+class GradientButton extends StatelessWidget {
   final String text;
   final Function press;
   final Color color;
-  const ButtonIn({
+  const GradientButton({
     Key key,
     this.text,
     this.press,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vcure_doctors/components/appointment_toogle.dart';
-import 'package:vcure_doctors/components/button2.0.dart';
+import 'package:vcure_doctors/components/gradient_button.dart';
 import 'package:vcure_doctors/components/hellotext.dart';
 import 'package:vcure_doctors/components/location_drpdown.dart';
 
@@ -30,7 +30,7 @@ class _HomePageBodyState extends State<HomePageBody> {
                   padding: EdgeInsets.only(top: size.height / 3.3),
                   child: Column(
                     children: [
-                      ButtonIn(
+                      GradientButton(
                         text: 'Instant Consultation',
                         press: () {
                           // Navigator.of(context, rootNavigator: true)
@@ -43,7 +43,7 @@ class _HomePageBodyState extends State<HomePageBody> {
                       SizedBox(
                         height: 50,
                       ),
-                      ButtonIn(
+                      GradientButton(
                         text: 'Online Appointments',
                         press: () {
                           // Navigator.of(context, rootNavigator: true)
@@ -56,7 +56,7 @@ class _HomePageBodyState extends State<HomePageBody> {
                       SizedBox(
                         height: 50,
                       ),
-                      ButtonIn(
+                      GradientButton(
                         text: 'In-Clinic Appointments',
                         press: () {
                           // Navigator.of(context, rootNavigator: true)

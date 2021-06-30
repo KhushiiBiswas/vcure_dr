@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vcure_doctors/components/appointment_toogle.dart';
-import 'package:vcure_doctors/components/button2.0.dart';
+import 'package:vcure_doctors/components/gradient_button.dart';
 import 'package:vcure_doctors/components/hellotext.dart';
 import 'package:vcure_doctors/components/location_drpdown.dart';
 
@@ -16,7 +16,7 @@ class _DoctorsFrontState extends State<DoctorsFront> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Material(
-          child: SingleChildScrollView(
+      child: SingleChildScrollView(
         child: Stack(
           children: [
             Location(),
@@ -31,9 +31,8 @@ class _DoctorsFrontState extends State<DoctorsFront> {
                     padding: EdgeInsets.only(top: size.height / 3.3),
                     child: Column(
                       children: [
-                        ButtonIn(
+                        GradientButton(
                           text: '  Morning  ',
-                        
                           press: () {
                             // Navigator.of(context, rootNavigator: true)
                             //     .push(MaterialPageRoute(
@@ -45,8 +44,8 @@ class _DoctorsFrontState extends State<DoctorsFront> {
                         SizedBox(
                           height: 50,
                         ),
-                        ButtonIn(
-                          text: '  Afternoon  ',
+                        GradientButton(
+                          text: ' Afternoon ',
                           press: () {
                             // Navigator.of(context, rootNavigator: true)
                             //     .push(MaterialPageRoute(
@@ -58,7 +57,7 @@ class _DoctorsFrontState extends State<DoctorsFront> {
                         SizedBox(
                           height: 50,
                         ),
-                        ButtonIn(
+                        GradientButton(
                           text: '  Evening  ',
                           press: () {
                             // Navigator.of(context, rootNavigator: true)
@@ -69,7 +68,7 @@ class _DoctorsFrontState extends State<DoctorsFront> {
                             //             )));
                           },
                         ),
-                       // CustomToggle()
+                        // CustomToggle()
                       ],
                     ),
                   ),
@@ -83,5 +82,4 @@ class _DoctorsFrontState extends State<DoctorsFront> {
   }
 }
 
-mixin DoctorsFrontPage {
-}
+mixin DoctorsFrontPage {}
