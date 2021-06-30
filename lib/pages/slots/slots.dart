@@ -16,7 +16,7 @@
    Widget build(BuildContext context) {
      return Material(
             child: SingleChildScrollView(
-
+                
          
             child: Padding(
               padding: const EdgeInsets.only(top: 100),
@@ -164,7 +164,7 @@
                              padding: const EdgeInsets.only(top: 20), 
                            ),
                            Row(children: [
-                             Text("02 PM - 03 PM     ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
+                             Text("02 PM - 03 PM     ",textAlign: TextAlign.center,style: TextStyle(fontSize: 18,),),
                              CustomToggle()
                            ],),
                            
