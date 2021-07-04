@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vcure_doctors/components/gradient_button.dart';
 import 'package:vcure_doctors/components/location_drpdown.dart';
 import 'package:vcure_doctors/pages/schedule/schedule.dart';
+import 'package:vcure_doctors/pages/slots/slots.dart';
 
 class HomePageBody extends StatefulWidget {
   const HomePageBody({Key key}) : super(key: key);
@@ -39,11 +40,8 @@ class _HomePageBodyState extends State<HomePageBody> {
                       GradientButton(
                         text: ' Online Appointments ',
                         press: () {
-                          // Navigator.of(context, rootNavigator: true)
-                          //     .push(MaterialPageRoute(
-                          //         builder: (context) => Categories(
-                          //               appointmentType: "Appointment Booking",
-                          //             )));
+                          Navigator.of(context, rootNavigator: true).push(
+                              MaterialPageRoute(builder: (context) => Slots()));
                         },
                       ),
                       SizedBox(
