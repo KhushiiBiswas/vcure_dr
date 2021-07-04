@@ -1,81 +1,94 @@
 import 'package:flutter/material.dart';
-import 'package:vcure_doctors/components/appointment_toogle.dart';
-import 'package:vcure_doctors/components/gradient_button.dart';
-import 'package:vcure_doctors/components/hellotext.dart';
-import 'package:vcure_doctors/components/location_drpdown.dart';
+import 'package:vcure_doctors/components/custom_appbar.dart';
+import 'package:vcure_doctors/components/nav_drawer.dart';
+import 'package:vcure_doctors/pages/homepage/homepage_body.dart';
+import 'package:vcure_doctors/pages/sign_in/sign_in_body.dart';
 
-class HomePageBody extends StatefulWidget {
-  const HomePageBody({Key key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  HomePage({Key key, this.title}) : super(key: key);
+  final String title;
 
   @override
-  _HomePageBodyState createState() => _HomePageBodyState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageBodyState extends State<HomePageBody> {
+class _HomePageState extends State<HomePage> {
+  final GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
+  int _currentTabIndex = 0;
+
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return SingleChildScrollView(
-      child: Stack(
-        children: [
-          Location(), 
-          Padding(
-            padding: const EdgeInsets.only(top: 50),
-            child: HelloText(),
-          ),
-          Center(
-            child: Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(top: size.height / 3.3),
-                  child: Column(
-                    children: [
-                      GradientButton(
-                        text: 'Instant Consultation',
-                        press: () {
-                          // Navigator.of(context, rootNavigator: true)
-                          //     .push(MaterialPageRoute(
-                          //         builder: (context) => Categories(
-                          //               appointmentType: "Instant Consultation",
-                          //             )));
-                        },
-                      ),
-                      SizedBox(
-                        height: 50,
-                      ),
-                      GradientButton(
-                        text: 'Online Appointments',
-                        press: () {
-                          // Navigator.of(context, rootNavigator: true)
-                          //     .push(MaterialPageRoute(
-                          //         builder: (context) => Categories(
-                          //               appointmentType: "Appointment Booking",
-                          //             )));
-                        },
-                      ),
-                      SizedBox(
-                        height: 50,
-                      ),
-                      GradientButton(
-                        text: 'In-Clinic Appointments',
-                        press: () {
-                          // Navigator.of(context, rootNavigator: true)
-                          //     .push(MaterialPageRoute(
-                          //         builder: (context) => Categories(
-                          //               appointmentType:
-                          //                   "In-Clinic Appointment",
-                          //             )));
-                        },
-                      ),
-                      CustomToggle()
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
+    return Scaffold(
+      drawer: NavDrawer(),
+      appBar: CustomAppBar(),
+      body: Navigator(key: _navigatorKey, onGenerateRoute: generateRoute),
+      bottomNavigationBar: _bottomNavigationBar(),
     );
+  }
+
+  Widget _bottomNavigationBar() {
+    return BottomNavigationBar(
+      backgroundColor: Colors.grey.shade800,
+      type: BottomNavigationBarType.fixed,
+      items: [
+        BottomNavigationBarItem(
+          icon: Image.asset(
+            'assets/home.png',
+            height: 25,
+            width: 25,
+          ),
+          label: "",
+        ),
+        BottomNavigationBarItem(
+          icon: Image.asset(
+            'assets/profile.png',
+            height: 25,
+            width: 25,
+          ),
+          label: "",
+        ),
+        BottomNavigationBarItem(
+          icon: Image.asset(
+            'assets/settings.png',
+            height: 25,
+            width: 25,
+          ),
+          label: "",
+        )
+      ],
+      onTap: _onTap,
+      currentIndex: _currentTabIndex,
+    );
+  }
+
+  _onTap(int tabIndex) {
+    switch (tabIndex) {
+      case 0:
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => HomePageBody()));
+        break;
+      case 1:
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => HomePage()));
+        break;
+      case 2:
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => HomePage()));
+        break;
+    }
+    setState(() {
+      _currentTabIndex = tabIndex;
+    });
+  }
+
+  Route<dynamic> generateRoute(RouteSettings settings) {
+    switch (settings.name) {
+      case "Account":
+        return MaterialPageRoute(builder: (context) => SignInBody());
+      case "Settings":
+        return MaterialPageRoute(builder: (context) => SignInBody());
+      default:
+        return MaterialPageRoute(builder: (context) => HomePageBody());
+    }
   }
 }

@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vcure_doctors/components/appointment_toogle.dart';
 import 'package:vcure_doctors/components/background.dart';
-import 'package:vcure_doctors/pages/Doctors_Panel/Doctors_FrontPage.dart';
-
-import 'package:vcure_doctors/pages/kyc.dart';
-import 'package:vcure_doctors/pages/slots/slots.dart';
+import 'package:vcure_doctors/pages/sign_in/sign_in_body.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Slots(),
+      home: Background(child: SignInBody()),
     );
   }
 }

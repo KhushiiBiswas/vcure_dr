@@ -9,7 +9,6 @@ class Background extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Stack(
       //fit: StackFit.passthrough,
       // overflow: Overflow.visible,
