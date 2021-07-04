@@ -11,9 +11,9 @@ class Cancel extends StatefulWidget {
 
 class _CancelState extends State<Cancel> {
   // ignore: non_constant_identifier_names
-  String _valuechhose = "Item1";
+  String avaluechhose = "Item1";
 
-  List<String> _listItem = ["Item1", "Item2", "Item3", "Item4"];
+  List<String> listItemtest = ["Item1", "Item2", "Item3", "Item4"];
 
   @override
   Widget build(BuildContext context) {
@@ -38,13 +38,14 @@ class _CancelState extends State<Cancel> {
                 isExpanded: true,
                 underline: SizedBox(),
                 style: TextStyle(color: Colors.black, fontSize: 22),
-                value: _valuechhose,
+                value: avaluechhose,
                 onChanged: (newValue) {
                   setState(() {
-                    _valuechhose = newValue;
+                    avaluechhose = newValue;
                   });
                 },
-                items: _listItem.map((valueItem) {
+                
+                items: listItemtest.map((valueItem) {
                   return DropdownMenuItem(
                     value: valueItem,
                     child: Text(valueItem),
@@ -55,6 +56,7 @@ class _CancelState extends State<Cancel> {
           ),
         ),
       ),
+      
     );
   }
 }

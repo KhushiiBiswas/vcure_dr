@@ -62,8 +62,7 @@ class _CustomToggleState extends State<CustomToggle> {
   }
 
   toggleButton() {
-    setState(() {
-      togglevalue = !togglevalue;
-    });
+    togglevalue = !togglevalue;
+    setState(() { });
   }
 }
