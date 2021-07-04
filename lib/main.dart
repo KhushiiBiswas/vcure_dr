@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vcure_doctors/components/background.dart';
+import 'package:vcure_doctors/pages/Appointment/Cancel_Appointment.dart';
 import 'package:vcure_doctors/pages/sign_in/sign_in_body.dart';
 
 void main() {
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Background(child: SignInBody()),
+      home: Cancel(),
     );
   }
 }
