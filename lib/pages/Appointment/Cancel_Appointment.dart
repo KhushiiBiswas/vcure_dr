@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:vcure_doctors/components/appointment_toogle.dart';
 import 'package:vcure_doctors/components/background.dart';
+import 'package:vcure_doctors/components/button.dart';
+import 'package:vcure_doctors/components/demo.dart';
+import 'package:vcure_doctors/components/gradient_button.dart';
+import 'package:vcure_doctors/components/kyc_button.dart';
 import 'package:vcure_doctors/pages/sign_in/sign_in_body.dart';
 
 class Cancel extends StatefulWidget {
@@ -11,51 +16,64 @@ class Cancel extends StatefulWidget {
 
 class _CancelState extends State<Cancel> {
   // ignore: non_constant_identifier_names
-  String avaluechhose = "Item1";
 
-  List<String> listItemtest = ["Item1", "Item2", "Item3", "Item4"];
+  final myController = TextEditingController();
+ 
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size; 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Gagan"),
+        title: Text("Cancel"),
       ),
-      body: Container(
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Container(
-              padding: EdgeInsets.only(left: 16, right: 16),
-              decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey, width: 1),
-                  borderRadius: BorderRadius.circular(15)),
-              child: DropdownButton(
-                hint: Text("Select Items"),
-                dropdownColor: Colors.white,
-                icon: Icon(Icons.arrow_drop_down),
-                iconSize: 36,
-                isExpanded: true,
-                underline: SizedBox(),
-                style: TextStyle(color: Colors.black, fontSize: 22),
-                value: avaluechhose,
-                onChanged: (newValue) {
-                  setState(() {
-                    avaluechhose = newValue;
-                  });
-                },
-                
-                items: listItemtest.map((valueItem) {
-                  return DropdownMenuItem(
-                    value: valueItem,
-                    child: Text(valueItem),
-                  );
-                }).toList(),
-              ),
-            ),
+    
+      body: Padding(
+        padding: const EdgeInsets.only(top:50.0,left: 16,right: 16),
+        child: Container(
+          height: size.height/2,
+          width: size.width,
+          decoration: BoxDecoration(
+            color: Colors.blueGrey,
+            
+
           ),
+          child: Column(children: [
+            
+            Padding(
+              padding: const EdgeInsets.only(top:20.0),
+              child: Dropdown(),
+            ),
+            
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+                child: TextField(
+                  
+                maxLines: null,
+                decoration: InputDecoration(labelText: "Reason",labelStyle: TextStyle(color: Colors.white) ),
+
+            
+              ),
+              
+            ),
+           
+            Padding(
+              padding: const EdgeInsets.only(top:30.0),
+              child: ElevatedButton(
+                onPressed: () {}, 
+                
+                child: Text("Cancel") 
+                
+                ),
+            )  
+           
+          ],),
         ),
       ),
+
+      
+      
+      
       
     );
   }
