@@ -31,7 +31,7 @@ class _CancelState extends State<Cancel> {
       body: Padding(
         padding: const EdgeInsets.only(top:50.0,left: 16,right: 16),
         child: Container(
-          height: size.height/2,
+          height: size.height/2.1,
           width: size.width,
           decoration: BoxDecoration(
             color: Colors.blueGrey.shade300
@@ -59,13 +59,11 @@ class _CancelState extends State<Cancel> {
            
             Padding(
               padding: const EdgeInsets.only(top:30.0),
-              child: ElevatedButton(
-                onPressed: () {}, 
-                
-                child: Text("Cancel") 
-                
+              child: Button(
+                text: "Cancel",press: (){},
+              )
                 ),
-            )  
+             
            
           ],),
         ),
