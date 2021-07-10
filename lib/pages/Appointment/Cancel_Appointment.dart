@@ -34,7 +34,7 @@ class _CancelState extends State<Cancel> {
           height: size.height/2,
           width: size.width,
           decoration: BoxDecoration(
-            color: Colors.blueGrey,
+            color: Colors.blueGrey.shade300
             
 
           ),
