@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:vcure_doctors/components/Cancel_Dropdown.dart';
 import 'package:vcure_doctors/components/MainProfile_Dropdown.dart';
 import 'package:vcure_doctors/components/Specialization_Dropdown.dart';
+import 'package:vcure_doctors/components/button.dart';
+import 'package:vcure_doctors/pages/kyc.dart';
 
 class Detail extends StatefulWidget {
   const Detail({ Key key }) : super(key: key);
@@ -122,7 +124,21 @@ class _DetailState extends State<Detail> {
             Padding(
               padding: EdgeInsets.all(8.0),
               child: Specialization(),
-            )
+            ),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Button(text: "Done",
+              press: (){
+                 Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => kycFinal(),
+                          ),
+                        );
+              },
+              ),
+              
+              )
           ]
           
           )

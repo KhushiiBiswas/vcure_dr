@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vcure_doctors/components/button.dart';
 import 'package:vcure_doctors/components/number_textfield.dart';
 import 'package:vcure_doctors/components/password.dart';
+import 'package:vcure_doctors/pages/Doctor_Details.dart';
 import 'package:vcure_doctors/pages/homepage/homepage.dart';
 
 class SignInBody extends StatelessWidget {
@@ -66,7 +67,7 @@ class SignInBody extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => HomePage(),
+                            builder: (context) => Detail(),
                           ),
                         );
                       },
