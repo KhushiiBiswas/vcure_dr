@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
     switch (tabIndex) {
       case 0:
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => HomePageBody()));
+            context, MaterialPageRoute(builder: (context) => HomepageBody()));
         break;
       case 1:
         Navigator.push(
@@ -88,7 +88,7 @@ class _HomePageState extends State<HomePage> {
       case "Settings":
         return MaterialPageRoute(builder: (context) => SignInBody());
       default:
-        return MaterialPageRoute(builder: (context) => HomePageBody());
+        return MaterialPageRoute(builder: (context) => HomepageBody());
     }
   }
 }

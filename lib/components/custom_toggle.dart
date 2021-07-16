@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class Home extends StatefulWidget {
+class CustomToggle extends StatefulWidget {
   @override
-  _HomeState createState() => _HomeState();
+  _CustomToggleState createState() => _CustomToggleState();
 }
 
-class _HomeState extends State<Home> {
+class _CustomToggleState extends State<CustomToggle> {
   bool isSwitched = false;
   @override
   Widget build(BuildContext context) {

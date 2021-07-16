@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vcure_doctors/components/toggle_switch.dart';
+import 'package:vcure_doctors/components/custom_toggle.dart';
 
 class Slots extends StatelessWidget {
   const Slots({Key key}) : super(key: key);
@@ -62,7 +62,10 @@ class Slots extends StatelessWidget {
                               top: 10,
                             ),
                             child: Row(
-                              children: [Text(timeMorning[index]), Home()],
+                              children: [
+                                Text(timeMorning[index]),
+                                CustomToggle()
+                              ],
                             ),
                           );
                         }),
