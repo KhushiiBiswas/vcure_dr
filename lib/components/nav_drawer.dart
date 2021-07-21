@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:store_redirect/store_redirect.dart';
+import 'package:vcure_doctors/pages/appointment_history.dart';
 
 class NavDrawer extends StatelessWidget {
   final String name;
@@ -8,44 +10,52 @@ class NavDrawer extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          DrawerHeader(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "name",
-                    style: TextStyle(color: Colors.white, fontSize: 25),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  TextButton(
-                      onPressed: () {
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => ProfilePage()));
-                      },
-                      child: Text("Edit profile",
-                          style: TextStyle(color: Colors.white, fontSize: 15)))
-                ],
-              ),
-              decoration: BoxDecoration(
-                color: Color(0xff03c8a8),
-              )),
-          ListTile(
-            leading: Icon(Icons.description_outlined),
-            title: Text('Appointments'),
-            onTap: () => {},
+          Container(
+            height: size.height / 6.5,
+            child: DrawerHeader(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: Colors.white,
+                          child: Icon(
+                            Icons.person,
+                            color: Colors.teal,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Flexible(
+                          child: Text(
+                            "Dr. Gagandeep Singh",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: size.height / 40),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                decoration: BoxDecoration(
+                  color: Color(0xff03c8a8),
+                )),
           ),
           ListTile(
             leading: Icon(Icons.history),
-            title: Text('History'),
-            onTap: () => {Navigator.of(context).pop()},
+            title: Text('Appointment History'),
+            onTap: () => {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => AppointmentHistory()))
+            },
           ),
           ListTile(
             leading: Icon(Icons.help),
@@ -55,7 +65,7 @@ class NavDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.border_color),
             title: Text('Rate us'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () => {StoreRedirect.redirect()},
           ),
           ListTile(
             leading: Icon(Icons.exit_to_app),

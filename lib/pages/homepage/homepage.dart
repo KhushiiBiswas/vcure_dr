@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vcure_doctors/components/custom_appbar.dart';
 import 'package:vcure_doctors/components/nav_drawer.dart';
 import 'package:vcure_doctors/pages/homepage/homepage_body.dart';
+import 'package:vcure_doctors/pages/profile.dart';
 import 'package:vcure_doctors/pages/sign_in/sign_in_body.dart';
 
 class HomePage extends StatefulWidget {
@@ -69,7 +70,7 @@ class _HomePageState extends State<HomePage> {
         break;
       case 1:
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => HomePage()));
+            context, MaterialPageRoute(builder: (context) => Profile()));
         break;
       case 2:
         Navigator.push(

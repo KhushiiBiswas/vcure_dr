@@ -50,8 +50,12 @@ class ScheduleCard extends StatelessWidget {
                     color: Colors.white,
                   )),
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => AppointmentDetails()));
+                Navigator.of(context, rootNavigator: true)
+                    .push(MaterialPageRoute(
+                        builder: (
+                  context,
+                ) =>
+                            AppointmentDetails()));
               },
             ),
           ],
