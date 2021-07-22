@@ -3,13 +3,13 @@ import 'package:vcure_doctors/components/button.dart';
 import 'package:vcure_doctors/components/number_textfield.dart';
 import 'package:vcure_doctors/components/password.dart';
 import 'package:vcure_doctors/pages/homepage/homepage.dart';
-
+import 'package:vcure_doctors/models/user.dart';
 class SignInBody extends StatelessWidget {
   SignInBody({
     Key key,
   }) : super(key: key);
-  // final TextEditingController phonecontroller = TextEditingController(text: '');
-  // final TextEditingController passcontroller = TextEditingController(text: '');
+  final TextEditingController phonecontroller = TextEditingController(text: '');
+  final TextEditingController passcontroller = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
@@ -59,10 +59,10 @@ class SignInBody extends StatelessWidget {
                     child: Button(
                       text: 'Sign In',
                       press: () {
-                        // user.signinCred(
-                        //   phonecontroller.text,
-                        //   passcontroller.text,
-                        // );
+                        user.signinCred(
+                          phonecontroller.text,
+                          passcontroller.text,
+                        );
                         Navigator.push(
                           context,
                           MaterialPageRoute(

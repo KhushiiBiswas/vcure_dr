@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:vcure_doctors/components/background.dart';
 import 'package:vcure_doctors/pages/sign_in/sign_in_body.dart';
-
-void main() => runApp(MyApp());
+import 'package:vcure_doctors/utils/api.dart';
+void main(){
+  api.init();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
