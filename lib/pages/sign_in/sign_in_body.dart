@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vcure_doctors/components/button.dart';
 import 'package:vcure_doctors/components/number_textfield.dart';
 import 'package:vcure_doctors/components/password.dart';
+import 'package:vcure_doctors/models/doctor.dart';
 import 'package:vcure_doctors/pages/homepage/homepage.dart';
 import 'package:vcure_doctors/models/user.dart';
 class SignInBody extends StatelessWidget {
@@ -58,11 +59,14 @@ class SignInBody extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 10),
                     child: Button(
                       text: 'Sign In',
-                      press: () {
-                        user.signinCred(
+                      press: () async{
+                        
+                        await user.signinCred(
                           phonecontroller.text,
                           passcontroller.text,
                         );
+                        
+                        doc.validateDoc(user);
                         Navigator.push(
                           context,
                           MaterialPageRoute(

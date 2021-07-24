@@ -7,7 +7,7 @@ Api api = Api();
 
 class Api {
   //final storage = FlutterSecureStorage();
-  String token = '';
+  //String token = '';
   String baseurl;
   Map<String, String> headers;
 
