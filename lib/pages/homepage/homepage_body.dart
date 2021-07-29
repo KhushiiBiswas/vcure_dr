@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:vcure_doctors/components/schedule_card.dart';
+import 'package:vcure_doctors/models/appointmentlist.dart';
+
+AppList instappList = AppList('instant');
+AppList appList = AppList('normal');
 
 class HomepageBody extends StatefulWidget {
   const HomepageBody({Key key}) : super(key: key);
@@ -14,6 +18,8 @@ class _HomepageBodyState extends State<HomepageBody> {
   @override
   void initState() {
     isSelected = [true, false];
+    appList.reqlist();
+    instappList.reqlist();
     super.initState();
   }
 
@@ -149,11 +155,11 @@ class _InstantConsultationState extends State<InstantConsultation> {
           padding: EdgeInsets.only(top: size.height / 7),
           child: Container(
             child: ListView.builder(
-              itemCount: 6, // list.length,
+              itemCount: instappList.count, // list.length,
               itemBuilder: (context, index) {
                 return Padding(
                     padding: const EdgeInsets.only(top: 10),
-                    child: ScheduleCard());
+                    child: ScheduleCard(appointment: instappList.apps[index]));
               },
             ),
           ),
@@ -187,11 +193,11 @@ class AppointmentBooking extends StatelessWidget {
           padding: EdgeInsets.only(top: 40),
           child: Container(
             child: ListView.builder(
-              itemCount: 6, // list.length,
+              itemCount: appList.count, // list.length,
               itemBuilder: (context, index) {
                 return Padding(
                     padding: const EdgeInsets.only(top: 10),
-                    child: ScheduleCard());
+                    child: ScheduleCard(appointment: appList.apps[index]));
               },
             ),
           ),

@@ -11,7 +11,7 @@ class Api {
   String baseurl;
   Map<String, String> headers;
 
-  Future<void> init() {
+  Future<void> init() async {
     this.baseurl = 'http://192.168.43.111:5555/';
     this.headers = {
       'Content-Type': 'application/json; charset=UTF-8',

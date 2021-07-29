@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:vcure_doctors/pages/appointment_details.dart';
+import 'package:vcure_doctors/models/appointment.dart';
 
 class ScheduleCard extends StatelessWidget {
-  const ScheduleCard({Key key}) : super(key: key);
+  final Appointment appointment;
+  const ScheduleCard({Key key, this.appointment}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class ScheduleCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Jerry",
+                  appointment.client,
                   style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
