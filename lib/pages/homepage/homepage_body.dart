@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vcure_doctors/components/schedule_card.dart';
 import 'package:vcure_doctors/models/appointmentlist.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 AppList instappList = AppList('instant');
 AppList appList = AppList('normal');
@@ -13,6 +14,7 @@ class HomepageBody extends StatefulWidget {
 }
 
 class _HomepageBodyState extends State<HomepageBody> {
+  FirebaseMessaging messaging = FirebaseMessaging.instance;
   List<bool> isSelected;
   int n = 0;
   @override
@@ -25,6 +27,15 @@ class _HomepageBodyState extends State<HomepageBody> {
 
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    print(messaging.getToken().then((value) => print(value)));
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      print('Got a message whilst in the foreground!');
+      print('Message data: ${message.data}');
+
+      if (message.notification != null) {
+        print('Message also contained a notification: ${message.notification}');
+      }
+    });
     return Padding(
       padding: EdgeInsets.symmetric(
           horizontal: size.width / 30, vertical: size.height / 40),

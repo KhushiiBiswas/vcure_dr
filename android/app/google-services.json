@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "393131682404",
+    "project_id": "vcure-dr",
+    "storage_bucket": "vcure-dr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:393131682404:android:3ed74279f0fb8ca8c8cd71",
+        "android_client_info": {
+          "package_name": "com.vcure.vcure_doctors"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "393131682404-7cn36b9g3gkthrbq4jic2cmnm3m7j1n8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5r-7Em-2pRjTEgRjr9kfar1ItMOo9Nq0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "393131682404-7cn36b9g3gkthrbq4jic2cmnm3m7j1n8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
