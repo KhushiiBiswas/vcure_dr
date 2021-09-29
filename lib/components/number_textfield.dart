@@ -13,6 +13,7 @@ class NumberTextField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
       child: TextFormField(
+        controller: controller,
         style: TextStyle(color: Colors.white),
         keyboardType: TextInputType.phone,
         inputFormatters: [

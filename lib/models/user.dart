@@ -19,8 +19,8 @@ class User {
   };
  
   Future<void> signinCred(String unam , String pass) async{
-    this.username = '11111';
-    this.pass = 'ytrewq12345';
+    this.username = unam;
+    this.pass = pass;
     this.email = ' ';
     await api.getAuth(this.toJson());
     this.reqUser();

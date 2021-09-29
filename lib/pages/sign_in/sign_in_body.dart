@@ -39,8 +39,11 @@ class SignInBody extends StatelessWidget {
                       fit: BoxFit.scaleDown,
                     ),
                   ),
-                  NumberTextField(),
+                  NumberTextField(
+                    controller: phonecontroller,
+                  ),
                   Password(
+                    controller: passcontroller,
                     labeltext: "Password",
                   ),
                   Padding(

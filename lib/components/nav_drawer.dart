@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:store_redirect/store_redirect.dart';
 import 'package:vcure_doctors/pages/appointment_history.dart';
+import 'package:vcure_doctors/pages/slots/appointment_slot.dart';
 
 class NavDrawer extends StatelessWidget {
   final String name;
@@ -55,6 +56,14 @@ class NavDrawer extends StatelessWidget {
             onTap: () => {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => AppointmentHistory()))
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.history),
+            title: Text('Appointment Slots'),
+            onTap: () => {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => AppointmentSlot()))
             },
           ),
           ListTile(
