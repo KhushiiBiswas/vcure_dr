@@ -12,14 +12,14 @@ class _AppointmentSlotState extends State<AppointmentSlot> {
   int timeIndex = 0; //For tracking time
   int timeMorningIndex = 0;
   int timeAfternoonIndex = 0;
-  int timeEveningImdex = 0;
+  int timeEveningIndex = 0;
   int currentDateSelectedIndex = 0; //For Horizontal Date
   int selectedTimeIndex = 0; //For time
   ScrollController scrollController = ScrollController();
 
-  List<String> selectedMorning = [];
-  List<String> selectedAfternoon = ["11:00 AM", "11:30 AM"];
-  List<String> selectedEvening = ["11:00 AM", "11:30 AM"];
+  List<String> selectedMorning = ["11:00 AM"];
+  List<String> selectedAfternoon = ["11:00 AM"];
+  List<String> selectedEvening = ["11:00 AM"];
 
   List<String> timeMorning = [
     "10:00 AM",
@@ -31,7 +31,7 @@ class _AppointmentSlotState extends State<AppointmentSlot> {
     "01:00 PM",
     "01:30 PM",
     "02:00 PM",
-    "02:30 M",
+    "02:30 PM",
   ];
   List<String> timeEvening = [
     "10:00 AM",
@@ -134,7 +134,7 @@ class _AppointmentSlotState extends State<AppointmentSlot> {
                                       fontWeight: FontWeight.w700,
                                       color: selectedMorning
                                               .contains(timeMorning[index])
-                                          ? Colors.black
+                                          ? Color(0xff03c8a8)
                                           : Colors.white),
                                 ),
                               ),
@@ -185,12 +185,18 @@ class _AppointmentSlotState extends State<AppointmentSlot> {
                         itemBuilder: (BuildContext context, int index) {
                           return InkWell(
                             onTap: () {
-                              setState(() {
-                                timeIndex = 2;
-                                timeAfternoonIndex = index;
-                                selectedTimeIndex = index;
-                                assignedSlot = timeAfternoon[index];
-                              });
+                              if (selectedAfternoon
+                                    .contains(timeAfternoon[index])) {
+                                  selectedAfternoon.remove(timeAfternoon[index]);
+                                } else {
+                                  selectedAfternoon.add(timeAfternoon[index]);
+                                }
+                                setState(() {
+                                  timeIndex = 1;
+                                  timeAfternoonIndex = index;
+                                  selectedTimeIndex = index;
+                                  assignedSlot = timeAfternoon[index];
+                                });
                             },
                             child: Container(
                               height: 20,
@@ -199,19 +205,19 @@ class _AppointmentSlotState extends State<AppointmentSlot> {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
                                   border: Border.all(color: Colors.white),
-                                  color: timeAfternoonIndex == index &&
-                                          timeIndex == 2
-                                      ? Colors.white
-                                      : Colors.transparent),
+                                  color: selectedAfternoon
+                                            .contains(timeAfternoon[index])
+                                        ? Colors.white
+                                        : Colors.transparent ),
                               child: Text(
                                 timeAfternoon[index],
                                 style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w700,
-                                    color: timeAfternoonIndex == index &&
-                                            timeIndex == 2
-                                        ? Colors.black
-                                        : Colors.white),
+                                    color: selectedAfternoon
+                                            .contains(timeAfternoon[index])
+                                        ? Color(0xff03c8a8)
+                                        : Colors.white ),
                               ),
                             ),
                           );
@@ -261,12 +267,18 @@ class _AppointmentSlotState extends State<AppointmentSlot> {
                         itemBuilder: (BuildContext context, int index) {
                           return InkWell(
                             onTap: () {
-                              setState(() {
-                                timeIndex = 3;
-                                timeEveningImdex = index;
-                                selectedTimeIndex = index;
-                                assignedSlot = timeEvening[index];
-                              });
+                             if (selectedEvening
+                                    .contains(timeEvening[index])) {
+                                  selectedEvening.remove(timeEvening[index]);
+                                } else {
+                                  selectedEvening.add(timeEvening[index]);
+                                }
+                                setState(() {
+                                  timeIndex = 1;
+                                  timeEveningIndex = index;
+                                  selectedTimeIndex = index;
+                                  assignedSlot = timeEvening[index];
+                                });
                             },
                             child: Container(
                               height: 20,
@@ -275,20 +287,19 @@ class _AppointmentSlotState extends State<AppointmentSlot> {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
                                   border: Border.all(color: Colors.white),
-                                  color: timeEveningImdex == index &&
-                                          timeIndex == 3
-                                      ? Colors.white
-                                      : Colors.transparent),
+                                  color: selectedEvening
+                                            .contains(timeEvening[index])
+                                        ? Colors.white
+                                        : Colors.transparent ),
                               child: Text(
                                 timeEvening[index],
                                 style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w700,
-                                    color: timeEveningImdex == index &&
-                                            timeIndex == 3
-                                        ? Colors.black
-                                        : Colors.white),
-                              ),
+                                    color: selectedEvening
+                                            .contains(timeEvening[index])
+                                        ? Color(0xff03c8a8)
+                                        : Colors.white ),                        ),
                             ),
                           );
                         },
@@ -314,7 +325,12 @@ class _AppointmentSlotState extends State<AppointmentSlot> {
               backgroundColor: MaterialStateProperty.all(Color(0xff03c8a8)),
             ),
             onPressed: () {
-              showDialog(
+              api.exportApi('api/settimeslots', {
+                                'morning': selectedMorning,
+                                'afternoon': selectedAfternoon,
+                                'evening': selectedEvening,
+                              });
+              /*showDialog(
                   context: context,
                   builder: (BuildContext context) {
                     return AlertDialog(
@@ -358,15 +374,11 @@ class _AppointmentSlotState extends State<AppointmentSlot> {
                             ),
                             child: Text("Submit"),
                             onPressed: () {
-                              api.exportApi('api/settimeslots', {
-                                'morning': selectedMorning,
-                                'afternoon': selectedAfternoon,
-                                'evening': selectedEvening,
-                              });
+                              
                             })
                       ],
                     );
-                  });
+                  });*/
             },
           ),
         ]),
