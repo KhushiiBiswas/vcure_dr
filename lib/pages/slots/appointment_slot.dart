@@ -14,7 +14,7 @@ class _AppointmentSlotState extends State<AppointmentSlot> {
   int timeAfternoonIndex = 0;
   int timeEveningIndex = 0;
   int currentDateSelectedIndex = 0; //For Horizontal Date
-  int selectedTimeIndex = 0; //For time
+  int selectedTimeIndex = 0; //For selected time
   ScrollController scrollController = ScrollController();
 
   List<String> selectedMorning = ["11:00 AM"];
@@ -28,16 +28,20 @@ class _AppointmentSlotState extends State<AppointmentSlot> {
     "11:30 AM",
   ];
   List<String> timeAfternoon = [
+    "12:00 PM",
+    "12:30 PM",
     "01:00 PM",
     "01:30 PM",
     "02:00 PM",
     "02:30 PM",
   ];
   List<String> timeEvening = [
-    "10:00 AM",
-    "10:30 AM",
-    "11:00 AM",
-    "11:30 AM",
+    "05:00 PM",
+    "05:30 PM",
+    "06:00 PM",
+    "06:30 PM",
+    "07:00 PM",
+    "07:30 PM",
   ];
 
   @override
@@ -60,8 +64,9 @@ class _AppointmentSlotState extends State<AppointmentSlot> {
       ),
       body: SingleChildScrollView(
         child: Column(children: [
-          //To Show Current Date
-
+//
+//To Show Morning time slot
+//
           Padding(
             padding: const EdgeInsets.only(top: 30),
             child: Container(
@@ -83,68 +88,59 @@ class _AppointmentSlotState extends State<AppointmentSlot> {
                   end: Alignment.bottomRight,
                   colors: [Color(0xff03c8a8), Color(0xff89d8d3)]),
             ),
-            height: 100,
             child: Container(
-              padding: EdgeInsets.all(10),
-              width: MediaQuery.of(context).size.width,
-              height: 100,
-              child: Container(
-                  padding: EdgeInsets.all(10),
-                  width: MediaQuery.of(context).size.width,
-                  height: 100,
-                  child: Container(
-                      padding: EdgeInsets.only(top: 10, bottom: 10),
-                      child: Wrap(
-                        spacing: _size.width / 8.5,
-                        runSpacing: 10,
-                        children: [
-                          for (int index = 0;
-                              index < timeMorning.length;
-                              index++)
-                            InkWell(
-                              onTap: () {
-                                if (selectedMorning
-                                    .contains(timeMorning[index])) {
-                                  selectedMorning.remove(timeMorning[index]);
-                                } else {
-                                  selectedMorning.add(timeMorning[index]);
-                                }
-                                setState(() {
-                                  timeIndex = 1;
-                                  timeMorningIndex = index;
-                                  selectedTimeIndex = index;
-                                  assignedSlot = timeMorning[index];
-                                });
-                              },
-                              child: Container(
-                                height: 20,
-                                width: 90,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    border: Border.all(color: Colors.white),
-                                    color: selectedMorning
-                                            .contains(timeMorning[index])
-                                        ? Colors.white
-                                        : Colors.transparent),
-                                child: Text(
-                                  timeMorning[index],
-                                  style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w700,
-                                      color: selectedMorning
-                                              .contains(timeMorning[index])
-                                          ? Color(0xff03c8a8)
-                                          : Colors.white),
-                                ),
-                              ),
-                            )
-                        ],
-                      ))),
-            ),
+                padding: EdgeInsets.all(20),
+                width: MediaQuery.of(context).size.width,
+                child: Wrap(
+                  spacing: _size.width / 8.5,
+                  runSpacing: 15,
+                  children: [
+                    for (int index = 0; index < timeMorning.length; index++)
+                      InkWell(
+                        onTap: () {
+                          if (selectedMorning.contains(timeMorning[index])) {
+                            selectedMorning.remove(timeMorning[index]);
+                          } else {
+                            selectedMorning.add(timeMorning[index]);
+                          }
+                          setState(() {
+                            timeIndex = 1;
+                            timeMorningIndex = index;
+                            selectedTimeIndex = index;
+                            assignedSlot = timeMorning[index];
+                          });
+                        },
+                        child: Container(
+                          height: 40,
+                          width: 90,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              border: Border.all(color: Colors.white),
+                              color:
+                                  selectedMorning.contains(timeMorning[index])
+                                      ? Colors.white
+                                      : Colors.transparent),
+                          child: Text(
+                            timeMorning[index],
+                            style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w700,
+                                color:
+                                    selectedMorning.contains(timeMorning[index])
+                                        ? Color(0xff03c8a8)
+                                        : Colors.white),
+                          ),
+                        ),
+                      )
+                  ],
+                )),
           ),
+//
+// To Show Afternoon time slots
+//
           Padding(
-            padding: const EdgeInsets.only(top: 30),
+            padding: const EdgeInsets.only(top: 50),
             child: Container(
                 height: 30,
                 margin: EdgeInsets.only(left: 10),
@@ -164,69 +160,56 @@ class _AppointmentSlotState extends State<AppointmentSlot> {
                   end: Alignment.bottomRight,
                   colors: [Color(0xff03c8a8), Color(0xff89d8d3)]),
             ),
-            height: 100,
             child: Container(
-              padding: EdgeInsets.all(10),
-              width: MediaQuery.of(context).size.width,
-              height: 100,
-              child: Container(
-                  padding: EdgeInsets.all(10),
-                  width: MediaQuery.of(context).size.width,
-                  height: 100,
-                  child: Container(
-                      padding: EdgeInsets.only(top: 10, bottom: 10),
-                      child: ListView.separated(
-                        separatorBuilder: (BuildContext context, int index) {
-                          return SizedBox(width: 20);
-                        },
-                        itemCount: timeAfternoon.length,
-                        controller: scrollController,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (BuildContext context, int index) {
-                          return InkWell(
-                            onTap: () {
-                              if (selectedAfternoon
-                                    .contains(timeAfternoon[index])) {
-                                  selectedAfternoon.remove(timeAfternoon[index]);
-                                } else {
-                                  selectedAfternoon.add(timeAfternoon[index]);
-                                }
-                                setState(() {
-                                  timeIndex = 1;
-                                  timeAfternoonIndex = index;
-                                  selectedTimeIndex = index;
-                                  assignedSlot = timeAfternoon[index];
-                                });
-                            },
-                            child: Container(
-                              height: 20,
-                              width: 90,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  border: Border.all(color: Colors.white),
-                                  color: selectedAfternoon
-                                            .contains(timeAfternoon[index])
-                                        ? Colors.white
-                                        : Colors.transparent ),
-                              child: Text(
-                                timeAfternoon[index],
-                                style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w700,
-                                    color: selectedAfternoon
-                                            .contains(timeAfternoon[index])
-                                        ? Color(0xff03c8a8)
-                                        : Colors.white ),
-                              ),
-                            ),
-                          );
-                        },
-                      ))),
-            ),
+                padding: EdgeInsets.all(20),
+                width: MediaQuery.of(context).size.width,
+                child:
+                    Wrap(spacing: _size.width / 8.5, runSpacing: 15, children: [
+                  for (int index = 0; index < timeAfternoon.length; index++)
+                    InkWell(
+                      onTap: () {
+                        if (selectedAfternoon.contains(timeAfternoon[index])) {
+                          selectedAfternoon.remove(timeAfternoon[index]);
+                        } else {
+                          selectedAfternoon.add(timeAfternoon[index]);
+                        }
+                        setState(() {
+                          timeIndex = 1;
+                          timeAfternoonIndex = index;
+                          selectedTimeIndex = index;
+                          assignedSlot = timeAfternoon[index];
+                        });
+                      },
+                      child: Container(
+                        height: 40,
+                        width: 90,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color: Colors.white),
+                            color:
+                                selectedAfternoon.contains(timeAfternoon[index])
+                                    ? Colors.white
+                                    : Colors.transparent),
+                        child: Text(
+                          timeAfternoon[index],
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w700,
+                              color: selectedAfternoon
+                                      .contains(timeAfternoon[index])
+                                  ? Color(0xff03c8a8)
+                                  : Colors.white),
+                        ),
+                      ),
+                    )
+                ])),
           ),
+//
+// To show Evening time slot
+//
           Padding(
-            padding: const EdgeInsets.only(top: 30),
+            padding: const EdgeInsets.only(top: 50),
             child: Container(
                 height: 30,
                 margin: EdgeInsets.only(left: 10),
@@ -246,140 +229,79 @@ class _AppointmentSlotState extends State<AppointmentSlot> {
                   end: Alignment.bottomRight,
                   colors: [Color(0xff03c8a8), Color(0xff89d8d3)]),
             ),
-            height: 100,
             child: Container(
-              padding: EdgeInsets.all(10),
-              width: MediaQuery.of(context).size.width,
-              height: 100,
-              child: Container(
-                  padding: EdgeInsets.all(10),
-                  width: MediaQuery.of(context).size.width,
-                  height: 100,
-                  child: Container(
-                      padding: EdgeInsets.only(top: 10, bottom: 10),
-                      child: ListView.separated(
-                        separatorBuilder: (BuildContext context, int index) {
-                          return SizedBox(width: 20);
-                        },
-                        itemCount: timeEvening.length,
-                        controller: scrollController,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (BuildContext context, int index) {
-                          return InkWell(
-                            onTap: () {
-                             if (selectedEvening
-                                    .contains(timeEvening[index])) {
-                                  selectedEvening.remove(timeEvening[index]);
-                                } else {
-                                  selectedEvening.add(timeEvening[index]);
-                                }
-                                setState(() {
-                                  timeIndex = 1;
-                                  timeEveningIndex = index;
-                                  selectedTimeIndex = index;
-                                  assignedSlot = timeEvening[index];
-                                });
-                            },
-                            child: Container(
-                              height: 20,
-                              width: 90,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  border: Border.all(color: Colors.white),
-                                  color: selectedEvening
-                                            .contains(timeEvening[index])
-                                        ? Colors.white
-                                        : Colors.transparent ),
-                              child: Text(
-                                timeEvening[index],
-                                style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w700,
-                                    color: selectedEvening
-                                            .contains(timeEvening[index])
-                                        ? Color(0xff03c8a8)
-                                        : Colors.white ),                        ),
-                            ),
-                          );
-                        },
-                      ))),
-            ),
-          ),
-          SizedBox(
-            height: 40,
-          ),
-          ElevatedButton(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: new Text(
-                "  Continue  ",
-                style: TextStyle(color: Colors.white, fontSize: 16),
-              ),
-            ),
-            style: ButtonStyle(
-              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(18.0),
-              )),
-              backgroundColor: MaterialStateProperty.all(Color(0xff03c8a8)),
-            ),
-            onPressed: () {
-              api.exportApi('api/settimeslots', {
-                                'morning': selectedMorning,
-                                'afternoon': selectedAfternoon,
-                                'evening': selectedEvening,
-                              });
-              /*showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      scrollable: true,
-                      title: Text('Appointment for'),
-                      content: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Form(
-                          child: Column(
-                            children: <Widget>[
-                              TextFormField(
-                                decoration: InputDecoration(
-                                  labelText: 'Name',
-                                  icon: Icon(Icons.account_box),
-                                ),
-                              ),
-                              TextFormField(
-                                keyboardType: TextInputType.numberWithOptions(
-                                    signed: false),
-                                decoration: InputDecoration(
-                                  labelText: 'Age',
-                                  icon: Icon(Icons.calendar_view_day_rounded),
-                                ),
-                              ),
-                              TextFormField(
-                                maxLines: null,
-                                decoration: InputDecoration(
-                                  labelText: 'Illness',
-                                  icon: Icon(Icons.message),
-                                ),
-                              ),
-                            ],
-                          ),
+                padding: EdgeInsets.all(20),
+                width: MediaQuery.of(context).size.width,
+                child:
+                    Wrap(spacing: _size.width / 8.5, runSpacing: 15, children: [
+                  for (int index = 0; index < timeEvening.length; index++)
+                    InkWell(
+                      onTap: () {
+                        if (selectedEvening.contains(timeEvening[index])) {
+                          selectedEvening.remove(timeEvening[index]);
+                        } else {
+                          selectedEvening.add(timeEvening[index]);
+                        }
+                        setState(() {
+                          timeIndex = 1;
+                          timeEveningIndex = index;
+                          selectedTimeIndex = index;
+                          assignedSlot = timeEvening[index];
+                        });
+                      },
+                      child: Container(
+                        height: 40,
+                        width: 90,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color: Colors.white),
+                            color: selectedEvening.contains(timeEvening[index])
+                                ? Colors.white
+                                : Colors.transparent),
+                        child: Text(
+                          timeEvening[index],
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w700,
+                              color:
+                                  selectedEvening.contains(timeEvening[index])
+                                      ? Color(0xff03c8a8)
+                                      : Colors.white),
                         ),
                       ),
-                      actions: [
-                        ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.all(Color(0xff03c8a8)),
-                            ),
-                            child: Text("Submit"),
-                            onPressed: () {
-                              
-                            })
-                      ],
-                    );
-                  });*/
-            },
+                    )
+                ])),
+          ),
+
+          Padding(
+            padding: const EdgeInsets.only(top: 50),
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: ElevatedButton(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: new Text(
+                    "  Save  ",
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  ),
+                ),
+                style: ButtonStyle(
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18.0),
+                  )),
+                  backgroundColor: MaterialStateProperty.all(Color(0xff03c8a8)),
+                ),
+                onPressed: () {
+                  api.exportApi('api/settimeslots', {
+                    'morning': selectedMorning,
+                    'afternoon': selectedAfternoon,
+                    'evening': selectedEvening,
+                  });
+                },
+              ),
+            ),
           ),
         ]),
       ),
